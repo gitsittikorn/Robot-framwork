@@ -39,6 +39,8 @@ Say Hello
 
     # Open Browser        ${URL_ebay}             ${Brower_ch}   
     # Input Text           id=gh-ac               Automate robot framework
+
+# Exmaple by Doppio    
 # TC--EX00 
 #     Open Browser        ${URL_ex00}             ${Brower_ch}   
 #     Input Text           id=username-box         EX00 user
