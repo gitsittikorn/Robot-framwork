@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220906 11:07:23.402" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Day1" source="D:\full-stack\robot-framework\robot_day1.robot">
+<test id="s1-t1" name="google_homepage" line="14">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 11:07:24.129" level="INFO">Opening browser 'chrome' to base url 'https://google.com'.</msg>
+<status status="PASS" starttime="20220906 11:07:24.128" endtime="20220906 11:07:30.147"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>q</arg>
+<arg>sittikorn</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:07:30.156" level="INFO">Typing text 'sittikorn' into text field 'q'.</msg>
+<status status="PASS" starttime="20220906 11:07:30.155" endtime="20220906 11:07:30.462"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>q</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:07:30.465" level="INFO">Clicking element 'q'.</msg>
+<status status="PASS" starttime="20220906 11:07:30.465" endtime="20220906 11:07:30.645"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220906 11:07:31.665" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220906 11:07:30.650" endtime="20220906 11:07:31.665"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>btnK</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220906 11:07:31.676" level="INFO">Clicking button 'btnK'.</msg>
+<status status="PASS" starttime="20220906 11:07:31.676" endtime="20220906 11:07:35.218"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220906 11:07:38.264" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220906 11:07:35.235" endtime="20220906 11:07:38.266"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220906 11:07:38.364" endtime="20220906 11:07:49.143"/>
+</kw>
+<status status="PASS" starttime="20220906 11:07:24.100" endtime="20220906 11:07:49.212"/>
+</test>
+<status status="PASS" starttime="20220906 11:07:23.406" endtime="20220906 11:07:49.216"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Day1">Robot Day1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

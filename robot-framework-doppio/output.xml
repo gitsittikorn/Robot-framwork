@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220906 13:35:36.105" rpa="false" schemaversion="3">
+<suite id="s1" name="First Robot" source="D:\full-stack\robot-framework-doppio\first_robot.robot">
+<test id="s1-t1" name="TC--EX07" line="76">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL_ex07}</arg>
+<arg>${Brower_ch}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 13:35:36.385" level="INFO">Opening browser 'chrome' to base url 'file:///C:/Users/m_sit/Downloads/ep01_material/ep01/ep01_small_excercise.html'.</msg>
+<status status="PASS" starttime="20220906 13:35:36.385" endtime="20220906 13:35:38.514"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=username-box</arg>
+<arg>EX07 Username</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 13:35:38.515" level="INFO">Typing text 'EX07 Username' into text field 'id=username-box'.</msg>
+<status status="PASS" starttime="20220906 13:35:38.515" endtime="20220906 13:35:38.674"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//div[@v='password']/input</arg>
+<arg>EX07 Password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 13:35:38.675" level="INFO">Typing text 'EX07 Password' into text field 'xpath=//div[@v='password']/input'.</msg>
+<status status="PASS" starttime="20220906 13:35:38.675" endtime="20220906 13:35:38.821"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//input[@doppio='nickname']</arg>
+<arg>EX07 Nickname</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 13:35:38.824" level="INFO">Typing text 'EX07 Nickname' into text field 'xpath=//input[@doppio='nickname']'.</msg>
+<status status="PASS" starttime="20220906 13:35:38.823" endtime="20220906 13:35:38.971"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//option[@value='doppio']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 13:35:38.974" level="INFO">Clicking element 'xpath=//option[@value='doppio']'.</msg>
+<status status="PASS" starttime="20220906 13:35:38.973" endtime="20220906 13:35:39.028"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//input[@id='op1']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220906 13:35:39.039" level="INFO">Clicking button 'xpath=//input[@id='op1']'.</msg>
+<status status="PASS" starttime="20220906 13:35:39.037" endtime="20220906 13:35:39.099"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//button[@id='use-me']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220906 13:35:39.102" level="INFO">Clicking button 'xpath=//button[@id='use-me']'.</msg>
+<status status="PASS" starttime="20220906 13:35:39.101" endtime="20220906 13:35:39.161"/>
+</kw>
+<status status="PASS" starttime="20220906 13:35:36.384" endtime="20220906 13:35:39.162"/>
+</test>
+<status status="PASS" starttime="20220906 13:35:36.108" endtime="20220906 13:35:39.165"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="First Robot">First Robot</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220906 10:04:23.611" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\m_sit\.vscode\extensions\robocorp.robotframework-lsp-1.1.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="log to Hello">
+<msg timestamp="20220906 10:04:24.644" level="FAIL">No keyword with name 'log to Hello' found. Did you try using keyword 'BuiltIn.Log' and forgot to use enough whitespace between keyword and arguments?</msg>
+<status status="FAIL" starttime="20220906 10:04:24.643" endtime="20220906 10:04:24.644"/>
+</kw>
+<status status="PASS" starttime="20220906 10:04:23.646" endtime="20220906 10:04:27.823"/>
+</kw>
+<status status="PASS" starttime="20220906 10:04:23.645" endtime="20220906 10:04:27.823"/>
+</test>
+<status status="PASS" starttime="20220906 10:04:23.616" endtime="20220906 10:04:27.825"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
