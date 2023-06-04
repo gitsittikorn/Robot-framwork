@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220906 14:42:45.395" rpa="false" schemaversion="3">
+<suite id="s1" name="Google2" source="D:\full-stack\Robot-framwork\Robot-framwork\robot-framwork-paun\google2.robot">
+<test id="s1-t1" name="ทดสอบการค้นหา google ด้วยคำว่า robot" line="8">
+<kw name="เปิด เว็บ google">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=https://www.google.com/</arg>
+<arg>browser=googlechrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 14:42:45.998" level="INFO">Opening browser 'googlechrome' to base url 'https://www.google.com/'.</msg>
+<status status="PASS" starttime="20220906 14:42:45.997" endtime="20220906 14:42:49.501"/>
+</kw>
+<status status="PASS" starttime="20220906 14:42:45.996" endtime="20220906 14:42:49.502"/>
+</kw>
+<kw name="ค้นหาคำว่า robot">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>text=robot</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 14:42:49.505" level="INFO">Typing text 'robot' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20220906 14:42:49.504" endtime="20220906 14:42:49.654"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20220906 14:42:49.655" level="INFO">Sending key(s) ('RETURN',) to name=q element.</msg>
+<msg timestamp="20220906 14:42:50.004" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20220906 14:42:50.005" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20220906 14:42:49.655" endtime="20220906 14:42:52.222"/>
+</kw>
+<status status="PASS" starttime="20220906 14:42:49.503" endtime="20220906 14:42:52.222"/>
+</kw>
+<kw name="ตรวจสอบผลค้นหาคำว่า robot">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${result}</var>
+<arg>id=result-stats</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220906 14:42:52.281" level="INFO">${result} = ผลการค้นหาประมาณ 1,580,000,000 รายการ (0.40 วินาที) </msg>
+<status status="PASS" starttime="20220906 14:42:52.224" endtime="20220906 14:42:52.282"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{words}</var>
+<arg>${result}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20220906 14:42:52.284" level="INFO">@{words} = [ ผลการค้นหาประมาณ | 1,580,000,000 | รายการ | (0.40 | วินาที) |  ]</msg>
+<status status="PASS" starttime="20220906 14:42:52.282" endtime="20220906 14:42:52.284"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${words}[1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220906 14:42:52.284" endtime="20220906 14:42:52.286"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${words}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220906 14:42:52.287" level="INFO">ผลการค้นหาประมาณ</msg>
+<status status="PASS" starttime="20220906 14:42:52.287" endtime="20220906 14:42:52.287"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${words}[1]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220906 14:42:52.288" level="INFO">1,580,000,000</msg>
+<status status="PASS" starttime="20220906 14:42:52.288" endtime="20220906 14:42:52.288"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${words}[2]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220906 14:42:52.289" level="INFO">รายการ</msg>
+<status status="PASS" starttime="20220906 14:42:52.288" endtime="20220906 14:42:52.289"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${words}[3]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220906 14:42:52.290" level="INFO">(0.40</msg>
+<status status="PASS" starttime="20220906 14:42:52.289" endtime="20220906 14:42:52.290"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${words}[4]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220906 14:42:52.291" level="INFO">วินาที)</msg>
+<status status="PASS" starttime="20220906 14:42:52.290" endtime="20220906 14:42:52.291"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${words}[1]</arg>
+<arg>${words}[1]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220906 14:42:52.291" endtime="20220906 14:42:52.292"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>robot</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220906 14:42:52.350" level="INFO">Current page contains text 'robot'.</msg>
+<status status="PASS" starttime="20220906 14:42:52.292" endtime="20220906 14:42:52.350"/>
+</kw>
+<status status="PASS" starttime="20220906 14:42:52.223" endtime="20220906 14:42:52.351"/>
+</kw>
+<kw name="ปิดเว็บ">
+<msg timestamp="20220906 14:42:52.353" level="FAIL">User keyword 'ปิดเว็บ' contains no keywords.</msg>
+<status status="FAIL" starttime="20220906 14:42:52.352" endtime="20220906 14:42:52.353"/>
+</kw>
+<status status="FAIL" starttime="20220906 14:42:45.991" endtime="20220906 14:42:52.354">User keyword 'ปิดเว็บ' contains no keywords.</status>
+</test>
+<test id="s1-t2" name="ทดสอบการค้นหา google ด้วยคำว่า facebook" line="14">
+<kw name="เปิด เว็บ google">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=https://www.google.com/</arg>
+<arg>browser=googlechrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 14:42:52.360" level="INFO">Opening browser 'googlechrome' to base url 'https://www.google.com/'.</msg>
+<status status="PASS" starttime="20220906 14:42:52.360" endtime="20220906 14:42:55.669"/>
+</kw>
+<status status="PASS" starttime="20220906 14:42:52.359" endtime="20220906 14:42:55.670"/>
+</kw>
+<kw name="ค้นหาคำว่า facebook">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>text=facebook</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 14:42:55.672" level="INFO">Typing text 'facebook' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20220906 14:42:55.672" endtime="20220906 14:42:55.841"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20220906 14:42:55.842" level="INFO">Sending key(s) ('RETURN',) to name=q element.</msg>
+<msg timestamp="20220906 14:42:56.170" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20220906 14:42:56.170" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20220906 14:42:55.841" endtime="20220906 14:42:57.903"/>
+</kw>
+<status status="PASS" starttime="20220906 14:42:55.671" endtime="20220906 14:42:57.904"/>
+</kw>
+<kw name="ตรวจสอบผลค้นหาคำว่า facebook">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${result}</var>
+<arg>id=result-stats</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220906 14:42:57.951" level="INFO">${result} = ผลการค้นหาประมาณ 25,270,000,000 รายการ (0.34 วินาที) </msg>
+<status status="PASS" starttime="20220906 14:42:57.905" endtime="20220906 14:42:57.952"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{words}</var>
+<arg>${result}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20220906 14:42:57.953" level="INFO">@{words} = [ ผลการค้นหาประมาณ | 25,270,000,000 | รายการ | (0.34 | วินาที) |  ]</msg>
+<status status="PASS" starttime="20220906 14:42:57.952" endtime="20220906 14:42:57.953"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${words}[1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220906 14:42:57.953" endtime="20220906 14:42:57.954"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${words}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220906 14:42:57.954" level="INFO">ผลการค้นหาประมาณ</msg>
+<status status="PASS" starttime="20220906 14:42:57.954" endtime="20220906 14:42:57.955"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${words}[1]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220906 14:42:57.955" level="INFO">25,270,000,000</msg>
+<status status="PASS" starttime="20220906 14:42:57.955" endtime="20220906 14:42:57.955"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${words}[2]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220906 14:42:57.956" level="INFO">รายการ</msg>
+<status status="PASS" starttime="20220906 14:42:57.956" endtime="20220906 14:42:57.956"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${words}[3]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220906 14:42:57.957" level="INFO">(0.34</msg>
+<status status="PASS" starttime="20220906 14:42:57.957" endtime="20220906 14:42:57.957"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${words}[4]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220906 14:42:57.958" level="INFO">วินาที)</msg>
+<status status="PASS" starttime="20220906 14:42:57.957" endtime="20220906 14:42:57.958"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${words}[1]</arg>
+<arg>${words}[1]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220906 14:42:57.958" endtime="20220906 14:42:57.959"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>facebook</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220906 14:42:58.019" level="INFO">Current page contains text 'facebook'.</msg>
+<status status="PASS" starttime="20220906 14:42:57.959" endtime="20220906 14:42:58.020"/>
+</kw>
+<status status="PASS" starttime="20220906 14:42:57.904" endtime="20220906 14:42:58.020"/>
+</kw>
+<kw name="ปิดเว็บ">
+<msg timestamp="20220906 14:42:58.021" level="FAIL">User keyword 'ปิดเว็บ' contains no keywords.</msg>
+<status status="FAIL" starttime="20220906 14:42:58.021" endtime="20220906 14:42:58.021"/>
+</kw>
+<status status="FAIL" starttime="20220906 14:42:52.356" endtime="20220906 14:42:58.023">User keyword 'ปิดเว็บ' contains no keywords.</status>
+</test>
+<status status="FAIL" starttime="20220906 14:42:45.399" endtime="20220906 14:42:58.025"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="2" skip="0" id="s1" name="Google2">Google2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

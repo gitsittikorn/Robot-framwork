@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220911 19:42:22.538" rpa="false" schemaversion="3">
+<suite id="s1" name="Swagger Api Test" source="D:\full-stack\Robot-framwork\Robot-framwork\robot-framwork-paun\RobotTraining_20220910_Big\tests\api_tests\swagger_api_test.robot">
+<test id="s1-t1" name="TC01 - Login" line="26">
+<kw name="Login">
+<arg>eve.holt@reqres.in</arg>
+<arg>cityslicka</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>baskets</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220911 19:42:25.009" level="INFO">Creating Session using : alias=baskets, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220911 19:42:25.005" endtime="20220911 19:42:25.009"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220911 19:42:25.010" level="INFO">&amp;{headers} = { Content-Type=application/json }</msg>
+<status status="PASS" starttime="20220911 19:42:25.009" endtime="20220911 19:42:25.010"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${json_string}</var>
+<arg>{</arg>
+<arg>"email": "${email}",</arg>
+<arg>"password": "${password}"</arg>
+<arg>}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220911 19:42:25.012" level="INFO">${json_string} = { "email": "eve.holt@reqres.in", "password": "cityslicka" }</msg>
+<status status="PASS" starttime="20220911 19:42:25.010" endtime="20220911 19:42:25.012"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>baskets</arg>
+<arg>/api/login</arg>
+<arg>data=${json_string}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220911 19:42:25.762" level="INFO">POST Request : url=https://reqres.in/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '59'} 
+ body={ "email": "eve.holt@reqres.in", "password": "cityslicka" } 
+ </msg>
+<msg timestamp="20220911 19:42:25.762" level="INFO">POST Response : url=https://reqres.in/api/login 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 11 Sep 2022 12:42:27 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '29', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"1d-lGCrvD6B7Qzk11+2C98+nGhhuec"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=J%2BaQ0Hwf1gNDtfPkThy9zdl69wS6YYwV22hiPUeUNR%2BjJ1xbH61xhJ1whf%2BdkLNYCJ9kQw22EMq5WLdsUVwIIk5zAlVgmFoWzt4RMfS7I%2B7WRSyKw71HV2ZMeA%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '74907bbf08fae2db-HKG'} 
+ body={"token":"QpwL5tke4Pnpja7X4"} 
+ </msg>
+<msg timestamp="20220911 19:42:25.763" level="INFO">C:\Users\m_sit\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220911 19:42:25.769" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220911 19:42:25.015" endtime="20220911 19:42:25.769"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:25.772" level="INFO">{"token":"QpwL5tke4Pnpja7X4"}</msg>
+<status status="PASS" starttime="20220911 19:42:25.769" endtime="20220911 19:42:25.772"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:25.775" level="INFO">{'token': 'QpwL5tke4Pnpja7X4'}</msg>
+<status status="PASS" starttime="20220911 19:42:25.772" endtime="20220911 19:42:25.775"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${200}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220911 19:42:25.775" endtime="20220911 19:42:25.779"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${response_token}</var>
+<arg>${response.json()}</arg>
+<arg>token</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20220911 19:42:25.782" level="INFO">${response_token} = QpwL5tke4Pnpja7X4</msg>
+<status status="PASS" starttime="20220911 19:42:25.780" endtime="20220911 19:42:25.782"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response_token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:25.784" level="INFO">QpwL5tke4Pnpja7X4</msg>
+<status status="PASS" starttime="20220911 19:42:25.783" endtime="20220911 19:42:25.784"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${response_token}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20220911 19:42:25.785" level="INFO">Length is 17</msg>
+<status status="PASS" starttime="20220911 19:42:25.784" endtime="20220911 19:42:25.785"/>
+</kw>
+<status status="PASS" starttime="20220911 19:42:24.996" endtime="20220911 19:42:25.785"/>
+</kw>
+<status status="PASS" starttime="20220911 19:42:24.994" endtime="20220911 19:42:25.799"/>
+</test>
+<test id="s1-t2" name="TC02 - Create user" line="29">
+<kw name="Create user Successful">
+<kw name="Uuid 4" library="FakerLibrary">
+<var>${uuid}</var>
+<doc>Generate a random UUID4 object and cast it to another type if specified using a callable ``cast_to``.</doc>
+<msg timestamp="20220911 19:42:25.810" level="INFO">${uuid} = f1f7b757-8094-45a6-b377-f98ddd2ce786</msg>
+<status status="PASS" starttime="20220911 19:42:25.809" endtime="20220911 19:42:25.810"/>
+</kw>
+<kw name="User Name" library="FakerLibrary">
+<var>${username}</var>
+<msg timestamp="20220911 19:42:25.812" level="INFO">${username} = thomas89</msg>
+<status status="PASS" starttime="20220911 19:42:25.810" endtime="20220911 19:42:25.812"/>
+</kw>
+<kw name="User Name" library="FakerLibrary">
+<var>${firstname}</var>
+<msg timestamp="20220911 19:42:25.814" level="INFO">${firstname} = khanchristopher</msg>
+<status status="PASS" starttime="20220911 19:42:25.812" endtime="20220911 19:42:25.814"/>
+</kw>
+<kw name="User Name" library="FakerLibrary">
+<var>${lastname}</var>
+<msg timestamp="20220911 19:42:25.818" level="INFO">${lastname} = brittanydavid</msg>
+<status status="PASS" starttime="20220911 19:42:25.815" endtime="20220911 19:42:25.818"/>
+</kw>
+<kw name="Company Email" library="FakerLibrary">
+<var>${email}</var>
+<msg timestamp="20220911 19:42:25.824" level="INFO">${email} = anthonymontes@shaffer.org</msg>
+<status status="PASS" starttime="20220911 19:42:25.820" endtime="20220911 19:42:25.824"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${password}</var>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20220911 19:42:25.826" level="INFO">${password} = +xIj5VfLe7</msg>
+<status status="PASS" starttime="20220911 19:42:25.825" endtime="20220911 19:42:25.826"/>
+</kw>
+<kw name="Phone Number" library="FakerLibrary">
+<var>${phone}</var>
+<msg timestamp="20220911 19:42:25.827" level="INFO">${phone} = 058-075-0121x56172</msg>
+<status status="PASS" starttime="20220911 19:42:25.826" endtime="20220911 19:42:25.827"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>uuid: ${uuid}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220911 19:42:25.827" endtime="20220911 19:42:25.841"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>username: ${username}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220911 19:42:25.842" endtime="20220911 19:42:25.847"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>firstname: ${firstname}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220911 19:42:25.848" endtime="20220911 19:42:25.891"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>lastname: ${lastname}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220911 19:42:25.892" endtime="20220911 19:42:25.969"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220911 19:42:25.969" endtime="20220911 19:42:25.981"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>password: ${password}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220911 19:42:25.982" endtime="20220911 19:42:26.058"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>phone: ${phone}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220911 19:42:26.058" endtime="20220911 19:42:26.170"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>uuid: ${uuid}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:26.172" level="INFO">uuid: f1f7b757-8094-45a6-b377-f98ddd2ce786</msg>
+<status status="PASS" starttime="20220911 19:42:26.170" endtime="20220911 19:42:26.172"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>username: ${username}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:26.173" level="INFO">username: thomas89</msg>
+<status status="PASS" starttime="20220911 19:42:26.172" endtime="20220911 19:42:26.173"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>firstname: ${firstname}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:26.174" level="INFO">firstname: khanchristopher</msg>
+<status status="PASS" starttime="20220911 19:42:26.174" endtime="20220911 19:42:26.175"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>lastname: ${lastname}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:26.175" level="INFO">lastname: brittanydavid</msg>
+<status status="PASS" starttime="20220911 19:42:26.175" endtime="20220911 19:42:26.176"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>email: ${email}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:26.177" level="INFO">email: anthonymontes@shaffer.org</msg>
+<status status="PASS" starttime="20220911 19:42:26.176" endtime="20220911 19:42:26.177"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>password: ${password}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:26.182" level="INFO">password: +xIj5VfLe7</msg>
+<status status="PASS" starttime="20220911 19:42:26.179" endtime="20220911 19:42:26.182"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>phone: ${phone}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:26.185" level="INFO">phone: 058-075-0121x56172</msg>
+<status status="PASS" starttime="20220911 19:42:26.183" endtime="20220911 19:42:26.185"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>baskets</arg>
+<arg>${url_create_user}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220911 19:42:26.187" level="INFO">Creating Session using : alias=baskets, url=https://petstore.swagger.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220911 19:42:26.186" endtime="20220911 19:42:26.188"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220911 19:42:26.189" level="INFO">&amp;{headers} = { Content-Type=application/json }</msg>
+<status status="PASS" starttime="20220911 19:42:26.188" endtime="20220911 19:42:26.189"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${json_string}</var>
+<arg>{</arg>
+<arg>"username": "${username}",</arg>
+<arg>"lastname": "${lastname}"</arg>
+<arg>}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220911 19:42:26.190" level="INFO">${json_string} = { "username": "thomas89", "lastname": "brittanydavid" }</msg>
+<status status="PASS" starttime="20220911 19:42:26.189" endtime="20220911 19:42:26.190"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>baskets</arg>
+<arg>/v2/user</arg>
+<arg>data=${json_string}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220911 19:42:27.610" level="INFO">POST Request : url=https://petstore.swagger.io/v2/user 
+ path_url=/v2/user 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '55'} 
+ body={ "username": "thomas89", "lastname": "brittanydavid" } 
+ </msg>
+<msg timestamp="20220911 19:42:27.610" level="INFO">POST Response : url=https://petstore.swagger.io/v2/user 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 11 Sep 2022 12:42:29 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"code":200,"type":"unknown","message":"999889911707"} 
+ </msg>
+<msg timestamp="20220911 19:42:27.610" level="INFO">C:\Users\m_sit\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220911 19:42:27.611" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220911 19:42:26.191" endtime="20220911 19:42:27.611"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:27.613" level="INFO">{"code":200,"type":"unknown","message":"999889911707"}</msg>
+<status status="PASS" starttime="20220911 19:42:27.612" endtime="20220911 19:42:27.614"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:27.616" level="INFO">{'code': 200, 'type': 'unknown', 'message': '999889911707'}</msg>
+<status status="PASS" starttime="20220911 19:42:27.614" endtime="20220911 19:42:27.616"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${200}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220911 19:42:27.616" endtime="20220911 19:42:27.619"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${response_name}</var>
+<arg>${response.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20220911 19:42:27.621" level="INFO">${response_name} = 999889911707</msg>
+<status status="PASS" starttime="20220911 19:42:27.619" endtime="20220911 19:42:27.621"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220911 19:42:27.622" level="INFO">999889911707</msg>
+<status status="PASS" starttime="20220911 19:42:27.621" endtime="20220911 19:42:27.622"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${response_name}</arg>
+<arg>999889908064</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20220911 19:42:27.624" level="FAIL">999889911707 != 999889908064</msg>
+<status status="FAIL" starttime="20220911 19:42:27.622" endtime="20220911 19:42:27.624"/>
+</kw>
+<status status="FAIL" starttime="20220911 19:42:25.808" endtime="20220911 19:42:27.625"/>
+</kw>
+<status status="FAIL" starttime="20220911 19:42:25.803" endtime="20220911 19:42:27.628">999889911707 != 999889908064</status>
+</test>
+<status status="FAIL" starttime="20220911 19:42:22.548" endtime="20220911 19:42:27.634"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="1" skip="0" id="s1" name="Swagger Api Test">Swagger Api Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

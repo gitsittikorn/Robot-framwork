@@ -1,0 +1,1248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.9.7 on darwin)" generated="20220910 17:58:51.115" rpa="false" schemaversion="2">
+<suite id="s1" name="Google8" source="/Users/ratthanunpongsaiya/Desktop/RobotTraining_20220910_Big/tests/google8.robot">
+<kw name="Given เปิดหน้าเว็บ Google" library="keyword_google_page" type="SETUP">
+<kw name="Log To Console" library="BuiltIn">
+<arg>เปิดหน้าเว็บ Google</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:51.360" endtime="20220910 17:58:51.360"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=${browser}</arg>
+<arg>url=https://www.google.com/</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220910 17:58:51.361" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.google.com/'.</msg>
+<status status="PASS" starttime="20220910 17:58:51.360" endtime="20220910 17:58:53.967"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:51.359" endtime="20220910 17:58:53.967"/>
+</kw>
+<test id="s1-t1" name="TC_005 - ค้นหาข้อมูล ด้วย ข้อมูลหลายชุด">
+<kw name="Log" library="BuiltIn" type="SETUP">
+<arg>เริ่มการทดสอบในเทสเคส</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:53.970" level="INFO">เริ่มการทดสอบในเทสเคส</msg>
+<status status="PASS" starttime="20220910 17:58:53.969" endtime="20220910 17:58:53.970"/>
+</kw>
+<kw name="ค้นหาข้อมูล และตรวจสอบคำค้น" library="keyword_google_page">
+<arg>Robot framework</arg>
+<arg>Robot framework</arg>
+<arg>92,000,000</arg>
+<kw name="When กรอกคำค้นหา" library="keyword_google_page">
+<arg>${input}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>กรอกคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:53.971" endtime="20220910 17:58:53.971"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>text=${input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220910 17:58:53.971" level="INFO">Typing text 'Robot framework' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20220910 17:58:53.971" endtime="20220910 17:58:54.186"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:53.970" endtime="20220910 17:58:54.186"/>
+</kw>
+<kw name="And กดปุ่มค้นหา" library="keyword_google_page">
+<kw name="Log To Console" library="BuiltIn">
+<arg>กดปุ่มค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:54.186" endtime="20220910 17:58:54.186"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220910 17:58:54.187" endtime="20220910 17:58:54.447"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220910 17:58:54.447" endtime="20220910 17:58:54.467"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:58:54.468" level="INFO">Clicking element 'name=btnK'.</msg>
+<status status="PASS" starttime="20220910 17:58:54.467" endtime="20220910 17:58:56.036"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:54.186" endtime="20220910 17:58:56.036"/>
+</kw>
+<kw name="Then ตรวจสอบข้อมูลคำค้นหา" library="keyword_google_page">
+<arg>${expected_message}</arg>
+<arg>${expected_result}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>ตรวจสอบข้อมูลคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:56.037" endtime="20220910 17:58:56.037"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual_message}</var>
+<arg>id=result-stats</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:58:56.065" level="INFO">${actual_message} = ผลการค้นหาประมาณ 82,000,000 รายการ (0.32 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:58:56.037" endtime="20220910 17:58:56.065"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:56.065" endtime="20220910 17:58:56.065"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:56.066" level="INFO">ผลการค้นหาประมาณ 82,000,000 รายการ (0.32 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:58:56.065" endtime="20220910 17:58:56.066"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:56.066" level="INFO">ผลการค้นหาประมาณ 82,000,000 รายการ (0.32 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:58:56.066" endtime="20220910 17:58:56.066"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{actual_result}</var>
+<arg>${actual_message}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20220910 17:58:56.066" level="INFO">@{actual_result} = [ ผลการค้นหาประมาณ | 82,000,000 | รายการ | (0.32 | วินาที) |  ]</msg>
+<status status="PASS" starttime="20220910 17:58:56.066" endtime="20220910 17:58:56.066"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:56.067" endtime="20220910 17:58:56.067"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:56.068" level="INFO">['ผลการค้นหาประมาณ', '82,000,000', 'รายการ', '(0.32', 'วินาที)', '']</msg>
+<status status="PASS" starttime="20220910 17:58:56.067" endtime="20220910 17:58:56.068"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:56.068" level="INFO">ผลการค้นหาประมาณ</msg>
+<status status="PASS" starttime="20220910 17:58:56.068" endtime="20220910 17:58:56.068"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:56.069" level="INFO">82,000,000</msg>
+<status status="PASS" starttime="20220910 17:58:56.068" endtime="20220910 17:58:56.069"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[2]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:56.070" level="INFO">รายการ</msg>
+<status status="PASS" starttime="20220910 17:58:56.069" endtime="20220910 17:58:56.070"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[3]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:56.070" level="INFO">(0.32</msg>
+<status status="PASS" starttime="20220910 17:58:56.070" endtime="20220910 17:58:56.070"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[4]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:56.071" level="INFO">วินาที)</msg>
+<status status="PASS" starttime="20220910 17:58:56.070" endtime="20220910 17:58:56.071"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${expected_message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220910 17:58:56.096" level="INFO">Current page contains text 'Robot framework'.</msg>
+<status status="PASS" starttime="20220910 17:58:56.071" endtime="20220910 17:58:56.097"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:56.036" endtime="20220910 17:58:56.097"/>
+</kw>
+<kw name="And กลับไปหน้าก่อนหน้า" library="keyword_google_page">
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20220910 17:58:56.097" endtime="20220910 17:58:56.425"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:56.097" endtime="20220910 17:58:56.426"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:53.970" endtime="20220910 17:58:56.426"/>
+</kw>
+<kw name="ค้นหาข้อมูล และตรวจสอบคำค้น" library="keyword_google_page">
+<arg>Selenium Library</arg>
+<arg>Selenium Library</arg>
+<arg>86,600,000</arg>
+<kw name="When กรอกคำค้นหา" library="keyword_google_page">
+<arg>${input}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>กรอกคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:56.427" endtime="20220910 17:58:56.427"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>text=${input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220910 17:58:56.428" level="INFO">Typing text 'Selenium Library' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20220910 17:58:56.427" endtime="20220910 17:58:56.590"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:56.426" endtime="20220910 17:58:56.591"/>
+</kw>
+<kw name="And กดปุ่มค้นหา" library="keyword_google_page">
+<kw name="Log To Console" library="BuiltIn">
+<arg>กดปุ่มค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:56.591" endtime="20220910 17:58:56.592"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220910 17:58:56.592" endtime="20220910 17:58:56.836"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220910 17:58:56.836" endtime="20220910 17:58:56.858"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:58:56.859" level="INFO">Clicking element 'name=btnK'.</msg>
+<status status="PASS" starttime="20220910 17:58:56.858" endtime="20220910 17:58:58.320"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:56.591" endtime="20220910 17:58:58.321"/>
+</kw>
+<kw name="Then ตรวจสอบข้อมูลคำค้นหา" library="keyword_google_page">
+<arg>${expected_message}</arg>
+<arg>${expected_result}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>ตรวจสอบข้อมูลคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:58.321" endtime="20220910 17:58:58.322"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual_message}</var>
+<arg>id=result-stats</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:58:58.432" level="INFO">${actual_message} = ผลการค้นหาประมาณ 28,800,000 รายการ (0.33 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:58:58.322" endtime="20220910 17:58:58.432"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:58.432" endtime="20220910 17:58:58.433"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:58.433" level="INFO">ผลการค้นหาประมาณ 28,800,000 รายการ (0.33 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:58:58.433" endtime="20220910 17:58:58.433"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:58.434" level="INFO">ผลการค้นหาประมาณ 28,800,000 รายการ (0.33 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:58:58.434" endtime="20220910 17:58:58.434"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{actual_result}</var>
+<arg>${actual_message}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20220910 17:58:58.434" level="INFO">@{actual_result} = [ ผลการค้นหาประมาณ | 28,800,000 | รายการ | (0.33 | วินาที) |  ]</msg>
+<status status="PASS" starttime="20220910 17:58:58.434" endtime="20220910 17:58:58.434"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:58.434" endtime="20220910 17:58:58.435"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:58.435" level="INFO">['ผลการค้นหาประมาณ', '28,800,000', 'รายการ', '(0.33', 'วินาที)', '']</msg>
+<status status="PASS" starttime="20220910 17:58:58.435" endtime="20220910 17:58:58.435"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:58.435" level="INFO">ผลการค้นหาประมาณ</msg>
+<status status="PASS" starttime="20220910 17:58:58.435" endtime="20220910 17:58:58.436"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:58.436" level="INFO">28,800,000</msg>
+<status status="PASS" starttime="20220910 17:58:58.436" endtime="20220910 17:58:58.437"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[2]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:58.437" level="INFO">รายการ</msg>
+<status status="PASS" starttime="20220910 17:58:58.437" endtime="20220910 17:58:58.437"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[3]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:58.437" level="INFO">(0.33</msg>
+<status status="PASS" starttime="20220910 17:58:58.437" endtime="20220910 17:58:58.438"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[4]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:58:58.438" level="INFO">วินาที)</msg>
+<status status="PASS" starttime="20220910 17:58:58.438" endtime="20220910 17:58:58.438"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${expected_message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220910 17:58:58.472" level="INFO">Current page contains text 'Selenium Library'.</msg>
+<status status="PASS" starttime="20220910 17:58:58.438" endtime="20220910 17:58:58.472"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:58.321" endtime="20220910 17:58:58.472"/>
+</kw>
+<kw name="And กลับไปหน้าก่อนหน้า" library="keyword_google_page">
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20220910 17:58:58.473" endtime="20220910 17:58:58.702"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:58.473" endtime="20220910 17:58:58.702"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:56.426" endtime="20220910 17:58:58.702"/>
+</kw>
+<kw name="ค้นหาข้อมูล และตรวจสอบคำค้น" library="keyword_google_page">
+<arg>Youtube</arg>
+<arg>Youtube</arg>
+<arg>92,000,000</arg>
+<kw name="When กรอกคำค้นหา" library="keyword_google_page">
+<arg>${input}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>กรอกคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:58.703" endtime="20220910 17:58:58.703"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>text=${input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220910 17:58:58.704" level="INFO">Typing text 'Youtube' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20220910 17:58:58.704" endtime="20220910 17:58:58.789"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:58.703" endtime="20220910 17:58:58.789"/>
+</kw>
+<kw name="And กดปุ่มค้นหา" library="keyword_google_page">
+<kw name="Log To Console" library="BuiltIn">
+<arg>กดปุ่มค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:58:58.790" endtime="20220910 17:58:58.790"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220910 17:58:58.790" endtime="20220910 17:58:59.021"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220910 17:58:59.022" endtime="20220910 17:58:59.052"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:58:59.053" level="INFO">Clicking element 'name=btnK'.</msg>
+<status status="PASS" starttime="20220910 17:58:59.052" endtime="20220910 17:59:00.210"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:58.789" endtime="20220910 17:59:00.210"/>
+</kw>
+<kw name="Then ตรวจสอบข้อมูลคำค้นหา" library="keyword_google_page">
+<arg>${expected_message}</arg>
+<arg>${expected_result}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>ตรวจสอบข้อมูลคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:00.211" endtime="20220910 17:59:00.211"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual_message}</var>
+<arg>id=result-stats</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:00.231" level="INFO">${actual_message} = ผลการค้นหาประมาณ 22,670,000,000 รายการ (0.35 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:00.211" endtime="20220910 17:59:00.231"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:00.231" endtime="20220910 17:59:00.231"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:00.232" level="INFO">ผลการค้นหาประมาณ 22,670,000,000 รายการ (0.35 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:00.231" endtime="20220910 17:59:00.232"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:00.232" level="INFO">ผลการค้นหาประมาณ 22,670,000,000 รายการ (0.35 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:00.232" endtime="20220910 17:59:00.232"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{actual_result}</var>
+<arg>${actual_message}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20220910 17:59:00.233" level="INFO">@{actual_result} = [ ผลการค้นหาประมาณ | 22,670,000,000 | รายการ | (0.35 | วินาที) |  ]</msg>
+<status status="PASS" starttime="20220910 17:59:00.232" endtime="20220910 17:59:00.233"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:00.233" endtime="20220910 17:59:00.233"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:00.233" level="INFO">['ผลการค้นหาประมาณ', '22,670,000,000', 'รายการ', '(0.35', 'วินาที)', '']</msg>
+<status status="PASS" starttime="20220910 17:59:00.233" endtime="20220910 17:59:00.234"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:00.234" level="INFO">ผลการค้นหาประมาณ</msg>
+<status status="PASS" starttime="20220910 17:59:00.234" endtime="20220910 17:59:00.234"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:00.234" level="INFO">22,670,000,000</msg>
+<status status="PASS" starttime="20220910 17:59:00.234" endtime="20220910 17:59:00.234"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[2]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:00.235" level="INFO">รายการ</msg>
+<status status="PASS" starttime="20220910 17:59:00.234" endtime="20220910 17:59:00.235"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[3]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:00.235" level="INFO">(0.35</msg>
+<status status="PASS" starttime="20220910 17:59:00.235" endtime="20220910 17:59:00.235"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[4]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:00.235" level="INFO">วินาที)</msg>
+<status status="PASS" starttime="20220910 17:59:00.235" endtime="20220910 17:59:00.235"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${expected_message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220910 17:59:00.259" level="INFO">Current page contains text 'Youtube'.</msg>
+<status status="PASS" starttime="20220910 17:59:00.235" endtime="20220910 17:59:00.259"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:00.211" endtime="20220910 17:59:00.259"/>
+</kw>
+<kw name="And กลับไปหน้าก่อนหน้า" library="keyword_google_page">
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20220910 17:59:00.260" endtime="20220910 17:59:00.443"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:00.260" endtime="20220910 17:59:00.443"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:58.702" endtime="20220910 17:59:00.443"/>
+</kw>
+<kw name="ค้นหาข้อมูล และตรวจสอบคำค้น" library="keyword_google_page">
+<arg>${name_facebook}</arg>
+<arg>${name_facebook}</arg>
+<arg>86,600,000</arg>
+<kw name="When กรอกคำค้นหา" library="keyword_google_page">
+<arg>${input}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>กรอกคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:00.445" endtime="20220910 17:59:00.445"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>text=${input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:00.445" level="INFO">Typing text 'Facebook' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20220910 17:59:00.445" endtime="20220910 17:59:00.558"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:00.444" endtime="20220910 17:59:00.558"/>
+</kw>
+<kw name="And กดปุ่มค้นหา" library="keyword_google_page">
+<kw name="Log To Console" library="BuiltIn">
+<arg>กดปุ่มค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:00.558" endtime="20220910 17:59:00.559"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220910 17:59:00.559" endtime="20220910 17:59:00.810"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220910 17:59:00.810" endtime="20220910 17:59:00.828"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:00.828" level="INFO">Clicking element 'name=btnK'.</msg>
+<status status="PASS" starttime="20220910 17:59:00.828" endtime="20220910 17:59:01.896"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:00.558" endtime="20220910 17:59:01.897"/>
+</kw>
+<kw name="Then ตรวจสอบข้อมูลคำค้นหา" library="keyword_google_page">
+<arg>${expected_message}</arg>
+<arg>${expected_result}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>ตรวจสอบข้อมูลคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:01.898" endtime="20220910 17:59:01.898"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual_message}</var>
+<arg>id=result-stats</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:01.942" level="INFO">${actual_message} = ผลการค้นหาประมาณ 25,270,000,000 รายการ (0.32 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:01.898" endtime="20220910 17:59:01.942"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:01.943" endtime="20220910 17:59:01.943"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:01.943" level="INFO">ผลการค้นหาประมาณ 25,270,000,000 รายการ (0.32 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:01.943" endtime="20220910 17:59:01.944"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:01.944" level="INFO">ผลการค้นหาประมาณ 25,270,000,000 รายการ (0.32 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:01.944" endtime="20220910 17:59:01.944"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{actual_result}</var>
+<arg>${actual_message}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20220910 17:59:01.944" level="INFO">@{actual_result} = [ ผลการค้นหาประมาณ | 25,270,000,000 | รายการ | (0.32 | วินาที) |  ]</msg>
+<status status="PASS" starttime="20220910 17:59:01.944" endtime="20220910 17:59:01.945"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:01.945" endtime="20220910 17:59:01.945"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:01.946" level="INFO">['ผลการค้นหาประมาณ', '25,270,000,000', 'รายการ', '(0.32', 'วินาที)', '']</msg>
+<status status="PASS" starttime="20220910 17:59:01.945" endtime="20220910 17:59:01.946"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:01.946" level="INFO">ผลการค้นหาประมาณ</msg>
+<status status="PASS" starttime="20220910 17:59:01.946" endtime="20220910 17:59:01.946"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:01.947" level="INFO">25,270,000,000</msg>
+<status status="PASS" starttime="20220910 17:59:01.946" endtime="20220910 17:59:01.947"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[2]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:01.947" level="INFO">รายการ</msg>
+<status status="PASS" starttime="20220910 17:59:01.947" endtime="20220910 17:59:01.947"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[3]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:01.948" level="INFO">(0.32</msg>
+<status status="PASS" starttime="20220910 17:59:01.947" endtime="20220910 17:59:01.948"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[4]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:01.948" level="INFO">วินาที)</msg>
+<status status="PASS" starttime="20220910 17:59:01.948" endtime="20220910 17:59:01.948"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${expected_message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220910 17:59:01.987" level="INFO">Current page contains text 'Facebook'.</msg>
+<status status="PASS" starttime="20220910 17:59:01.948" endtime="20220910 17:59:01.987"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:01.897" endtime="20220910 17:59:01.987"/>
+</kw>
+<kw name="And กลับไปหน้าก่อนหน้า" library="keyword_google_page">
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20220910 17:59:01.988" endtime="20220910 17:59:02.243"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:01.987" endtime="20220910 17:59:02.243"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:00.444" endtime="20220910 17:59:02.243"/>
+</kw>
+<tag>all</tag>
+<tag>main</tag>
+<status status="PASS" starttime="20220910 17:58:53.967" endtime="20220910 17:59:02.243"/>
+</test>
+<test id="s1-t2" name="TC_006 - ค้นหาข้อมูล ด้วย">
+<kw name="Log" library="BuiltIn" type="SETUP">
+<arg>เริ่มการทดสอบในเทสเคส</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:02.245" level="INFO">เริ่มการทดสอบในเทสเคส</msg>
+<status status="PASS" starttime="20220910 17:59:02.245" endtime="20220910 17:59:02.245"/>
+</kw>
+<kw name="ค้นหาข้อมูล และตรวจสอบคำค้น" library="keyword_google_page">
+<arg>Robot framework</arg>
+<arg>Robot framework</arg>
+<arg>92,000,000</arg>
+<kw name="When กรอกคำค้นหา" library="keyword_google_page">
+<arg>${input}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>กรอกคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:02.246" endtime="20220910 17:59:02.246"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>text=${input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:02.247" level="INFO">Typing text 'Robot framework' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20220910 17:59:02.247" endtime="20220910 17:59:02.510"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:02.246" endtime="20220910 17:59:02.511"/>
+</kw>
+<kw name="And กดปุ่มค้นหา" library="keyword_google_page">
+<kw name="Log To Console" library="BuiltIn">
+<arg>กดปุ่มค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:02.511" endtime="20220910 17:59:02.512"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220910 17:59:02.512" endtime="20220910 17:59:02.759"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220910 17:59:02.759" endtime="20220910 17:59:02.781"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:02.781" level="INFO">Clicking element 'name=btnK'.</msg>
+<status status="PASS" starttime="20220910 17:59:02.781" endtime="20220910 17:59:03.341"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:02.511" endtime="20220910 17:59:03.342"/>
+</kw>
+<kw name="Then ตรวจสอบข้อมูลคำค้นหา" library="keyword_google_page">
+<arg>${expected_message}</arg>
+<arg>${expected_result}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>ตรวจสอบข้อมูลคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:03.342" endtime="20220910 17:59:03.343"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual_message}</var>
+<arg>id=result-stats</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:03.367" level="INFO">${actual_message} = ผลการค้นหาประมาณ 82,000,000 รายการ (0.32 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:03.343" endtime="20220910 17:59:03.367"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:03.368" endtime="20220910 17:59:03.368"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:03.368" level="INFO">ผลการค้นหาประมาณ 82,000,000 รายการ (0.32 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:03.368" endtime="20220910 17:59:03.368"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:03.369" level="INFO">ผลการค้นหาประมาณ 82,000,000 รายการ (0.32 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:03.368" endtime="20220910 17:59:03.369"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{actual_result}</var>
+<arg>${actual_message}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20220910 17:59:03.369" level="INFO">@{actual_result} = [ ผลการค้นหาประมาณ | 82,000,000 | รายการ | (0.32 | วินาที) |  ]</msg>
+<status status="PASS" starttime="20220910 17:59:03.369" endtime="20220910 17:59:03.370"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:03.370" endtime="20220910 17:59:03.370"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:03.370" level="INFO">['ผลการค้นหาประมาณ', '82,000,000', 'รายการ', '(0.32', 'วินาที)', '']</msg>
+<status status="PASS" starttime="20220910 17:59:03.370" endtime="20220910 17:59:03.371"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:03.371" level="INFO">ผลการค้นหาประมาณ</msg>
+<status status="PASS" starttime="20220910 17:59:03.371" endtime="20220910 17:59:03.371"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:03.371" level="INFO">82,000,000</msg>
+<status status="PASS" starttime="20220910 17:59:03.371" endtime="20220910 17:59:03.372"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[2]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:03.372" level="INFO">รายการ</msg>
+<status status="PASS" starttime="20220910 17:59:03.372" endtime="20220910 17:59:03.372"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[3]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:03.372" level="INFO">(0.32</msg>
+<status status="PASS" starttime="20220910 17:59:03.372" endtime="20220910 17:59:03.373"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[4]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:03.373" level="INFO">วินาที)</msg>
+<status status="PASS" starttime="20220910 17:59:03.373" endtime="20220910 17:59:03.373"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${expected_message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220910 17:59:03.398" level="INFO">Current page contains text 'Robot framework'.</msg>
+<status status="PASS" starttime="20220910 17:59:03.373" endtime="20220910 17:59:03.398"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:03.342" endtime="20220910 17:59:03.399"/>
+</kw>
+<kw name="And กลับไปหน้าก่อนหน้า" library="keyword_google_page">
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20220910 17:59:03.399" endtime="20220910 17:59:03.686"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:03.399" endtime="20220910 17:59:03.686"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:02.245" endtime="20220910 17:59:03.686"/>
+</kw>
+<tag>all</tag>
+<tag>critical</tag>
+<status status="PASS" starttime="20220910 17:59:02.244" endtime="20220910 17:59:03.686"/>
+</test>
+<test id="s1-t3" name="TC_007 - ค้นหาข้อมูล ด้วย">
+<kw name="Log" library="BuiltIn" type="SETUP">
+<arg>เริ่มการทดสอบในเทสเคส</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:03.690" level="INFO">เริ่มการทดสอบในเทสเคส</msg>
+<status status="PASS" starttime="20220910 17:59:03.689" endtime="20220910 17:59:03.690"/>
+</kw>
+<kw name="ค้นหาข้อมูล และตรวจสอบคำค้น" library="keyword_google_page">
+<arg>Selenium Library</arg>
+<arg>Selenium Library</arg>
+<arg>86,600,000</arg>
+<kw name="When กรอกคำค้นหา" library="keyword_google_page">
+<arg>${input}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>กรอกคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:03.691" endtime="20220910 17:59:03.692"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>text=${input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:03.692" level="INFO">Typing text 'Selenium Library' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20220910 17:59:03.692" endtime="20220910 17:59:03.872"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:03.691" endtime="20220910 17:59:03.872"/>
+</kw>
+<kw name="And กดปุ่มค้นหา" library="keyword_google_page">
+<kw name="Log To Console" library="BuiltIn">
+<arg>กดปุ่มค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:03.873" endtime="20220910 17:59:03.873"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220910 17:59:03.873" endtime="20220910 17:59:03.935"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220910 17:59:03.936" endtime="20220910 17:59:03.953"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:03.954" level="INFO">Clicking element 'name=btnK'.</msg>
+<status status="PASS" starttime="20220910 17:59:03.953" endtime="20220910 17:59:05.263"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:03.873" endtime="20220910 17:59:05.263"/>
+</kw>
+<kw name="Then ตรวจสอบข้อมูลคำค้นหา" library="keyword_google_page">
+<arg>${expected_message}</arg>
+<arg>${expected_result}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>ตรวจสอบข้อมูลคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:05.264" endtime="20220910 17:59:05.264"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual_message}</var>
+<arg>id=result-stats</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:05.298" level="INFO">${actual_message} = ผลการค้นหาประมาณ 28,800,000 รายการ (0.33 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:05.264" endtime="20220910 17:59:05.298"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:05.298" endtime="20220910 17:59:05.299"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:05.299" level="INFO">ผลการค้นหาประมาณ 28,800,000 รายการ (0.33 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:05.299" endtime="20220910 17:59:05.299"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:05.299" level="INFO">ผลการค้นหาประมาณ 28,800,000 รายการ (0.33 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:05.299" endtime="20220910 17:59:05.299"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{actual_result}</var>
+<arg>${actual_message}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20220910 17:59:05.300" level="INFO">@{actual_result} = [ ผลการค้นหาประมาณ | 28,800,000 | รายการ | (0.33 | วินาที) |  ]</msg>
+<status status="PASS" starttime="20220910 17:59:05.300" endtime="20220910 17:59:05.300"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:05.300" endtime="20220910 17:59:05.301"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:05.301" level="INFO">['ผลการค้นหาประมาณ', '28,800,000', 'รายการ', '(0.33', 'วินาที)', '']</msg>
+<status status="PASS" starttime="20220910 17:59:05.301" endtime="20220910 17:59:05.301"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:05.301" level="INFO">ผลการค้นหาประมาณ</msg>
+<status status="PASS" starttime="20220910 17:59:05.301" endtime="20220910 17:59:05.301"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:05.302" level="INFO">28,800,000</msg>
+<status status="PASS" starttime="20220910 17:59:05.302" endtime="20220910 17:59:05.302"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[2]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:05.302" level="INFO">รายการ</msg>
+<status status="PASS" starttime="20220910 17:59:05.302" endtime="20220910 17:59:05.302"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[3]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:05.303" level="INFO">(0.33</msg>
+<status status="PASS" starttime="20220910 17:59:05.302" endtime="20220910 17:59:05.303"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[4]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:05.303" level="INFO">วินาที)</msg>
+<status status="PASS" starttime="20220910 17:59:05.303" endtime="20220910 17:59:05.303"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${expected_message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220910 17:59:05.327" level="INFO">Current page contains text 'Selenium Library'.</msg>
+<status status="PASS" starttime="20220910 17:59:05.303" endtime="20220910 17:59:05.327"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:05.263" endtime="20220910 17:59:05.327"/>
+</kw>
+<kw name="And กลับไปหน้าก่อนหน้า" library="keyword_google_page">
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20220910 17:59:05.327" endtime="20220910 17:59:05.559"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:05.327" endtime="20220910 17:59:05.559"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:03.690" endtime="20220910 17:59:05.559"/>
+</kw>
+<tag>all</tag>
+<status status="PASS" starttime="20220910 17:59:03.688" endtime="20220910 17:59:05.560"/>
+</test>
+<test id="s1-t4" name="TC_008 - ค้นหาข้อมูล ด้วย">
+<kw name="Log" library="BuiltIn" type="SETUP">
+<arg>เริ่มการทดสอบในเทสเคส</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:05.562" level="INFO">เริ่มการทดสอบในเทสเคส</msg>
+<status status="PASS" starttime="20220910 17:59:05.562" endtime="20220910 17:59:05.562"/>
+</kw>
+<kw name="ค้นหาข้อมูล และตรวจสอบคำค้น" library="keyword_google_page">
+<arg>Youtube</arg>
+<arg>Youtube</arg>
+<arg>92,000,000</arg>
+<kw name="When กรอกคำค้นหา" library="keyword_google_page">
+<arg>${input}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>กรอกคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:05.563" endtime="20220910 17:59:05.563"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>text=${input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:05.564" level="INFO">Typing text 'Youtube' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20220910 17:59:05.563" endtime="20220910 17:59:05.879"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:05.562" endtime="20220910 17:59:05.879"/>
+</kw>
+<kw name="And กดปุ่มค้นหา" library="keyword_google_page">
+<kw name="Log To Console" library="BuiltIn">
+<arg>กดปุ่มค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:05.879" endtime="20220910 17:59:05.879"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220910 17:59:05.880" endtime="20220910 17:59:06.118"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220910 17:59:06.118" endtime="20220910 17:59:06.139"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:06.139" level="INFO">Clicking element 'name=btnK'.</msg>
+<status status="PASS" starttime="20220910 17:59:06.139" endtime="20220910 17:59:06.502"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:05.879" endtime="20220910 17:59:06.502"/>
+</kw>
+<kw name="Then ตรวจสอบข้อมูลคำค้นหา" library="keyword_google_page">
+<arg>${expected_message}</arg>
+<arg>${expected_result}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>ตรวจสอบข้อมูลคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:06.503" endtime="20220910 17:59:06.503"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual_message}</var>
+<arg>id=result-stats</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:06.692" level="INFO">${actual_message} = ผลการค้นหาประมาณ 22,670,000,000 รายการ (0.35 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:06.503" endtime="20220910 17:59:06.692"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:06.692" endtime="20220910 17:59:06.692"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:06.694" level="INFO">ผลการค้นหาประมาณ 22,670,000,000 รายการ (0.35 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:06.694" endtime="20220910 17:59:06.694"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:06.694" level="INFO">ผลการค้นหาประมาณ 22,670,000,000 รายการ (0.35 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:06.694" endtime="20220910 17:59:06.694"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{actual_result}</var>
+<arg>${actual_message}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20220910 17:59:06.695" level="INFO">@{actual_result} = [ ผลการค้นหาประมาณ | 22,670,000,000 | รายการ | (0.35 | วินาที) |  ]</msg>
+<status status="PASS" starttime="20220910 17:59:06.694" endtime="20220910 17:59:06.695"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:06.695" endtime="20220910 17:59:06.695"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:06.696" level="INFO">['ผลการค้นหาประมาณ', '22,670,000,000', 'รายการ', '(0.35', 'วินาที)', '']</msg>
+<status status="PASS" starttime="20220910 17:59:06.696" endtime="20220910 17:59:06.696"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:06.697" level="INFO">ผลการค้นหาประมาณ</msg>
+<status status="PASS" starttime="20220910 17:59:06.697" endtime="20220910 17:59:06.697"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:06.698" level="INFO">22,670,000,000</msg>
+<status status="PASS" starttime="20220910 17:59:06.697" endtime="20220910 17:59:06.698"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[2]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:06.698" level="INFO">รายการ</msg>
+<status status="PASS" starttime="20220910 17:59:06.698" endtime="20220910 17:59:06.698"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[3]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:06.698" level="INFO">(0.35</msg>
+<status status="PASS" starttime="20220910 17:59:06.698" endtime="20220910 17:59:06.698"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[4]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:06.699" level="INFO">วินาที)</msg>
+<status status="PASS" starttime="20220910 17:59:06.698" endtime="20220910 17:59:06.699"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${expected_message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220910 17:59:06.801" level="INFO">Current page contains text 'Youtube'.</msg>
+<status status="PASS" starttime="20220910 17:59:06.699" endtime="20220910 17:59:06.801"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:06.502" endtime="20220910 17:59:06.801"/>
+</kw>
+<kw name="And กลับไปหน้าก่อนหน้า" library="keyword_google_page">
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20220910 17:59:06.801" endtime="20220910 17:59:07.031"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:06.801" endtime="20220910 17:59:07.031"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:05.562" endtime="20220910 17:59:07.031"/>
+</kw>
+<tag>all</tag>
+<tag>critical</tag>
+<status status="PASS" starttime="20220910 17:59:05.560" endtime="20220910 17:59:07.032"/>
+</test>
+<test id="s1-t5" name="TC_009 - ค้นหาข้อมูล ด้วย">
+<kw name="Log" library="BuiltIn" type="SETUP">
+<arg>เริ่มการทดสอบในเทสเคส</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:07.034" level="INFO">เริ่มการทดสอบในเทสเคส</msg>
+<status status="PASS" starttime="20220910 17:59:07.033" endtime="20220910 17:59:07.034"/>
+</kw>
+<kw name="ค้นหาข้อมูล และตรวจสอบคำค้น" library="keyword_google_page">
+<arg>${name_facebook}</arg>
+<arg>${name_facebook}</arg>
+<arg>86,600,000</arg>
+<kw name="When กรอกคำค้นหา" library="keyword_google_page">
+<arg>${input}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>กรอกคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:07.035" endtime="20220910 17:59:07.035"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>text=${input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:07.036" level="INFO">Typing text 'Facebook' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20220910 17:59:07.035" endtime="20220910 17:59:07.173"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:07.034" endtime="20220910 17:59:07.174"/>
+</kw>
+<kw name="And กดปุ่มค้นหา" library="keyword_google_page">
+<kw name="Log To Console" library="BuiltIn">
+<arg>กดปุ่มค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:07.174" endtime="20220910 17:59:07.175"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220910 17:59:07.175" endtime="20220910 17:59:07.425"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220910 17:59:07.425" endtime="20220910 17:59:07.446"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>name=btnK</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:07.446" level="INFO">Clicking element 'name=btnK'.</msg>
+<status status="PASS" starttime="20220910 17:59:07.446" endtime="20220910 17:59:08.077"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:07.174" endtime="20220910 17:59:08.077"/>
+</kw>
+<kw name="Then ตรวจสอบข้อมูลคำค้นหา" library="keyword_google_page">
+<arg>${expected_message}</arg>
+<arg>${expected_result}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>ตรวจสอบข้อมูลคำค้นหา</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:08.078" endtime="20220910 17:59:08.078"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual_message}</var>
+<arg>id=result-stats</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220910 17:59:08.125" level="INFO">${actual_message} = ผลการค้นหาประมาณ 25,270,000,000 รายการ (0.32 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:08.078" endtime="20220910 17:59:08.125"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:08.125" endtime="20220910 17:59:08.125"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:08.125" level="INFO">ผลการค้นหาประมาณ 25,270,000,000 รายการ (0.32 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:08.125" endtime="20220910 17:59:08.125"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:08.126" level="INFO">ผลการค้นหาประมาณ 25,270,000,000 รายการ (0.32 วินาที) </msg>
+<status status="PASS" starttime="20220910 17:59:08.126" endtime="20220910 17:59:08.126"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{actual_result}</var>
+<arg>${actual_message}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20220910 17:59:08.126" level="INFO">@{actual_result} = [ ผลการค้นหาประมาณ | 25,270,000,000 | รายการ | (0.32 | วินาที) |  ]</msg>
+<status status="PASS" starttime="20220910 17:59:08.126" endtime="20220910 17:59:08.126"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220910 17:59:08.126" endtime="20220910 17:59:08.127"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:08.127" level="INFO">['ผลการค้นหาประมาณ', '25,270,000,000', 'รายการ', '(0.32', 'วินาที)', '']</msg>
+<status status="PASS" starttime="20220910 17:59:08.127" endtime="20220910 17:59:08.127"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:08.128" level="INFO">ผลการค้นหาประมาณ</msg>
+<status status="PASS" starttime="20220910 17:59:08.127" endtime="20220910 17:59:08.128"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[1]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:08.128" level="INFO">25,270,000,000</msg>
+<status status="PASS" starttime="20220910 17:59:08.128" endtime="20220910 17:59:08.128"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[2]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:08.128" level="INFO">รายการ</msg>
+<status status="PASS" starttime="20220910 17:59:08.128" endtime="20220910 17:59:08.128"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[3]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:08.129" level="INFO">(0.32</msg>
+<status status="PASS" starttime="20220910 17:59:08.128" endtime="20220910 17:59:08.129"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_result}[4]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220910 17:59:08.129" level="INFO">วินาที)</msg>
+<status status="PASS" starttime="20220910 17:59:08.129" endtime="20220910 17:59:08.129"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${expected_message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220910 17:59:08.197" level="INFO">Current page contains text 'Facebook'.</msg>
+<status status="PASS" starttime="20220910 17:59:08.129" endtime="20220910 17:59:08.197"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:08.077" endtime="20220910 17:59:08.197"/>
+</kw>
+<kw name="And กลับไปหน้าก่อนหน้า" library="keyword_google_page">
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20220910 17:59:08.198" endtime="20220910 17:59:08.403"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:08.197" endtime="20220910 17:59:08.404"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:07.034" endtime="20220910 17:59:08.404"/>
+</kw>
+<tag>all</tag>
+<status status="PASS" starttime="20220910 17:59:07.032" endtime="20220910 17:59:08.404"/>
+</test>
+<kw name="And ปิดหน้าเว็บ" library="keyword_google_page" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220910 17:59:08.406" endtime="20220910 17:59:08.642"/>
+</kw>
+<status status="PASS" starttime="20220910 17:59:08.406" endtime="20220910 17:59:08.643"/>
+</kw>
+<status status="PASS" starttime="20220910 17:58:51.116" endtime="20220910 17:59:08.643"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="5" fail="0" skip="0">all</stat>
+<stat pass="2" fail="0" skip="0">critical</stat>
+<stat pass="1" fail="0" skip="0">main</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="Google8">Google8</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
